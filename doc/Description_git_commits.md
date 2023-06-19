@@ -10,4 +10,6 @@
 - Change the header "get_next_line.h" 
 - Change the main.c for Test
 **ToDo:** 
-- [ ] safe the reading line in a static var -- reading during a loop till \new line 
+- [ ] safe the reading line in a static var -- reading during a loop till \new line
+- [ ] Default value if i use "cc -D BUFFER_SIZE <file>.c"
+- [ ] clear git repo ft_printf 
