@@ -28,13 +28,17 @@ unsigned long count_fd_size(int fd)
 
 char *get_next_line(int fd)
 {
-    unsigned long ui_len_fd;
+  //  unsigned long ui_len_fd;
     char *str_c;
 
+/*
     ui_len_fd = count_fd_size(fd);
     printf("The len of the file are %ld\n", ui_len_fd);
     str_c = (char *)malloc(ui_len_fd);
     read(fd, str_c, ui_len_fd - 1);
     printf("%s", str_c);
+*/
+    str_c = (char *)malloc(BUFFER_SIZE);
+    read(fd, str_c, BUFFER_SIZE);
     return (str_c); 
 }
