@@ -11,5 +11,19 @@
 - Change the main.c for Test
 **ToDo:** 
 - [ ] safe the reading line in a static var -- reading during a loop till \new line
-- [ ] Default value if i use "cc -D BUFFER_SIZE <file>.c"
-- [ ] clear git repo ft_printf 
+- [x] Default value if i use "cc -D BUFFER_SIZE <file>.c"
+- [x] clear git repo ft_printf
+- [x] look the movie for todo next line
+
+
+## first output return from get_next_line --> 2023.06.19
+- creating some helpers (ft_strlen, ft_strcpy, ft_strcat, ft_bzero)
+- Changed the get_next_line() function to a return from a whole file size, 
+- thing about whats give read() as return if the file is open
+### ToDo
+- [ ] seperatet the fedback into a line feedback 
+- [ ] Use a count var to rember which line you are with reading 
+- [ ] Creat a loop function get_next_line at loops 
+- [ ] use the filename get_next_line_utils.c instead of ft_helpers.c
+- [ ] Lern how to use valgrind for memory leaks
+- [ ] Lern creating makefile

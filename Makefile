@@ -6,7 +6,8 @@ AR        = ar
 ARFLAGS   = rcs
 RM        = rm -rf
 
-SRCS      = get_next_line.c 
+SRCS      = get_next_line.c \
+			ft_helpers.c
 
 OBJ_DIR   = obj
 OBJS      = $(SRCS:%.c=$(OBJ_DIR)/%.o)
@@ -34,7 +35,7 @@ re: fclean all
 main: $(NAME) main.c $(OBJS)
 	$(CC) $(CFLAGS) main.c $(OBJS) -o program
 
-run: main
-	./program
+run: 	fclean main
+		./program
 
 .PHONY: all clean fclean re
