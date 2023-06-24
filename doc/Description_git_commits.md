@@ -22,8 +22,15 @@
 - thing about whats give read() as return if the file is open
 ### ToDo
 - [ ] seperatet the fedback into a line feedback 
-- [ ] Use a count var to rember which line you are with reading 
 - [ ] Creat a loop function get_next_line at loops 
-- [ ] use the filename get_next_line_utils.c instead of ft_helpers.c
+- [ ] Lern how to use valgrind for memory leaks
+- [ ] Lern creating makefile
+
+## seperate the get_next_line function --> 2023.06.24
+- The function get_next_line is for Norminette to long 
+- --> so it split to seperate function 
+### ToDo
+- [ ] seperatet the fedback into a line feedback 
+- [ ] Creat a loop function get_next_line at loops 
 - [ ] Lern how to use valgrind for memory leaks
 - [ ] Lern creating makefile
