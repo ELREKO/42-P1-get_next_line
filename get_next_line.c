@@ -16,7 +16,7 @@ static char *ft_copy_togehter(char *temp, char *str_read, char *str_ret)
 {
         if (str_ret)
         {
-            ft_strcpy(temp, str_ret);
+            ft_strncpy(temp, str_ret, ft_strlen(str_ret));
             ft_strcat(temp,str_read);
             free(str_ret);
         }
@@ -28,6 +28,54 @@ static char *ft_copy_togehter(char *temp, char *str_read, char *str_ret)
         return (str_ret); 
 }
 
+char *ft_feedback_newline(char **str_test, unsigned int ui_pos)
+{
+    char *str_ret;
+    char *str_store;
+
+    str_ret = (char *)malloc(sizeof(char *) * (ui_pos + 1));
+    str_store = (char *)malloc(sizeof(char *) * BUFFER_SIZE);
+    if (!str_ret || !str_store)
+        return (NULL);
+    //printf ("*str_test: |%s|--- ui_pos: |%d|\n\n", *str_test, ui_pos);
+
+    ft_bzero(str_ret, ft_strlen(str_ret));
+    ft_strncpy(str_ret, *str_test, ui_pos);
+
+    ft_bzero(str_store, ft_strlen(str_store));
+    ft_strncpy(str_store, *str_test + ui_pos + 1, (ft_strlen(*str_test) - (ui_pos)));
+
+
+    //printf("str_ret: |%s| -- str_store: |%s|\n", str_ret, str_store);
+
+    free(*str_test);
+    *str_test = (char *)malloc(sizeof(char *) * (ui_pos +1));
+    if (!*str_test)
+        return (NULL);
+    ft_bzero(*str_test, ft_strlen(*str_test));
+    ft_strncpy(*str_test, str_ret, ui_pos);
+
+    free(str_ret);
+
+    //printf("*str_test after Change: |%s|", *str_test);
+
+    return (str_store);
+}
+
+int ft_check_newline(char *str_test)
+{
+    
+    unsigned int ui_count;
+    ui_count = 0;
+    while (str_test[ui_count] != '\0')
+    {   
+        if (str_test[ui_count]  == '\n')
+            return (ui_count);
+        ui_count++;
+    }
+    return (0);
+}
+
 static char *ft_compare_together(int fd)
 {   
     unsigned int str_store_len;   
@@ -35,7 +83,16 @@ static char *ft_compare_together(int fd)
     char *temp;
     char *str_read;
     char *str_ret;
-    
+    static char *str_store;
+
+    if (str_store == NULL)
+    {
+        str_store = (char *)malloc(sizeof(char *) * BUFFER_SIZE);
+            if(!str_store)
+                return (NULL);
+    }
+    else
+        ft_strncpy(str_ret, str_store, ft_strlen(str_store)); 
     ui_read_res = 1;
     while (ui_read_res != 0 && ui_read_res != -1 && ui_read_res <= BUFFER_SIZE)
     { 
@@ -43,7 +100,9 @@ static char *ft_compare_together(int fd)
         if (ui_read_res == -1)
             return (NULL);
         if (ui_read_res == 0)
-            break ;
+        {
+            return ("");
+        }
         str_store_len = (str_ret != NULL) ? ft_strlen(str_ret) : 0;
         temp = (char *)malloc((BUFFER_SIZE + str_store_len) * sizeof(char));
         if (!temp) 
@@ -52,6 +111,11 @@ static char *ft_compare_together(int fd)
             return NULL;
         }
         str_ret = ft_copy_togehter(temp,str_read,str_ret);
+        if (ft_check_newline(str_ret) != 0)
+        {
+            str_store = ft_feedback_newline(&str_ret, ft_check_newline(str_ret));
+            break ;
+        }
     }
     //free(str_read);
     return (str_ret);

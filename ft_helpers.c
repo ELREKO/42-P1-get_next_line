@@ -12,11 +12,17 @@ size_t ft_strlen(char * str)
     return (ui_count);
 }
 
-char *ft_strcpy(char *dest, const char *src)
+char *ft_strncpy(char *dest, const char *src, unsigned int size)
 {
-    while (*src != '\0')
-        *dest++ = *src++;
-    *dest = '\0';
+    unsigned int ui_count;
+
+    ui_count = 0;
+    while (src[ui_count] != '\0' && ui_count <= size )
+    {
+        dest[ui_count] = src[ui_count];
+        ui_count++;
+    }
+    dest[ui_count] = '\0';
     return (dest);
 }
 

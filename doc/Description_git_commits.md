@@ -30,7 +30,20 @@
 - The function get_next_line is for Norminette to long 
 - --> so it split to seperate function 
 ### ToDo
-- [ ] seperatet the fedback into a line feedback 
+- [x] seperatet the fedback into a line feedback 
 - [ ] Creat a loop function get_next_line at loops 
+- [ ] Lern how to use valgrind for memory leaks
+- [ ] Lern creating makefile
+- [x] Baue in den Test "Test;--" ein --> nächste Zeile kommt eine '1' Warum ? 
+
+
+## get_next_line works --> 2023.06.24
+- get line give the feedback till '\n' newline char
+- ';--' wiht seperate line it works right no extra error with printing a '1'
+- Loop durring make forgot the last line 
+### ToDo
+- [ ] Creat a loop function get_next_line at loops 
+- [ ] creat a special Testfile 
+- [ ] look what is to to next_line_utiles() --> pdf
 - [ ] Lern how to use valgrind for memory leaks
 - [ ] Lern creating makefile

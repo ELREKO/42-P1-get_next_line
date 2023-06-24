@@ -14,7 +14,7 @@
 char *get_next_line(int fd);
 //helpers
 size_t ft_strlen(char * str);
-char *ft_strcpy(char *dest, const char *src);
+char *ft_strncpy(char *dest, const char *src, unsigned int size);
 char *ft_strcat(char *dest, const char *src);
 void ft_bzero(void *str, size_t ui_len);
 
