@@ -47,3 +47,13 @@
 - [ ] look what is to to next_line_utiles() --> pdf
 - [ ] Lern how to use valgrind for memory leaks
 - [ ] Lern creating makefile
+
+## folder New --> 2023.06.24
+- test at school Pc doesnt work 
+- changed filles in folder "New" 
+### ToDo
+- [ ] Creat a loop function get_next_line at loops 
+- [ ] creat a special Testfile 
+- [ ] look what is to to next_line_utiles() --> pdf
+- [ ] Lern how to use valgrind for memory leaks
+- [ ] Lern creating makefile
