@@ -28,15 +28,13 @@ int main(void)
     }
 
     str_read = get_next_line(fd);
-    printf("%s", str_read);
-    while (!ft_strcmp(str_read, ""))
+
+    while (str_read != NULL)
     {
-        if (!ft_strcmp(str_read, ""))
-        {
-            printf("%s", str_read);
-        }
+        printf("%s", str_read);
         str_read = get_next_line(fd);
     }
+    free(str_read);
     
     int result = close(fd);
     if (result < 0) {

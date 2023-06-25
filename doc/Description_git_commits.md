@@ -48,7 +48,7 @@
 - [ ] Lern how to use valgrind for memory leaks
 - [ ] Lern creating makefile
 
-## folder New --> 2023.06.24
+## folder New --> 2023.06.25
 - test at school Pc doesnt work 
 - changed filles in folder "New" 
 ### ToDo
@@ -57,3 +57,22 @@
 - [ ] look what is to to next_line_utiles() --> pdf
 - [ ] Lern how to use valgrind for memory leaks
 - [ ] Lern creating makefile
+
+## Kill Memory Leaks -- Loop without memory leak --> 2023.06.25
+- serch and kill memory leaks 
+- Test in a loop was okay
+- delete folder "New"
+### ToDo 
+- [x] doesn't print last line from reading 
+- [ ] creat a special Testfile
+- [ ] All Return Values if memory leaks
+
+## it works but not testet compled --> 2023.06.25
+- I test the function with easy Test files it works 
+- Now it print the last line 
+### ToDo 
+- [ ] Read and Test with Valgrind 
+- [ ] Look at francinett special Test 
+- [ ] Test with Big Buffer Size 10000000
+    - ich habe immer nur mit klienen  Buffer Size getestet jedoch bekomme ich bei einer grosse zurück BS das ganze file zurück
+    - Ich muss den static speicher auslesen 

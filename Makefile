@@ -7,7 +7,7 @@ ARFLAGS   = rcs
 RM        = rm -rf
 
 SRCS      = get_next_line.c \
-			ft_helpers.c
+			get_next_line_utils.c
 
 OBJ_DIR   = obj
 OBJS      = $(SRCS:%.c=$(OBJ_DIR)/%.o)
