@@ -19,7 +19,7 @@ int ft_strcmp(char *str1, char *str2)
 int main(void) 
 {
     int fd;
-    char *str_read = "NULL" ;
+    char *str_read ;
   
     fd = open("Test.txt", O_RDONLY);
     if (fd < 0) {
@@ -27,33 +27,17 @@ int main(void)
         exit(1);
     }
 
-    //char *str1 = "Test";
-    // char *str2 = " ";
-    // printf("%d\n", ft_strcmp("", str2));
-    
-
+    str_read = get_next_line(fd);
+    printf("%s", str_read);
     while (!ft_strcmp(str_read, ""))
     {
+        if (!ft_strcmp(str_read, ""))
+        {
+            printf("%s", str_read);
+        }
         str_read = get_next_line(fd);
-        printf("%s", str_read);
     }
-
-
-    // str_read = get_next_line(fd);
-    // printf("%s", str_read);
-    // str_read = get_next_line(fd);
-    // printf("%s", str_read);
-    // str_read = get_next_line(fd);
-    // printf("%s", str_read);
-    // str_read = get_next_line(fd);
-    // printf("%s", str_read);
-    // str_read = get_next_line(fd);
-    // printf("%s", str_read);
     
-
-
-    // Close the file
-
     int result = close(fd);
     if (result < 0) {
         perror("Error closing file");
