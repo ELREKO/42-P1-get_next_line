@@ -81,7 +81,9 @@ int ft_feedback_newline(char **str_test, char **str_store)
         str_ret = (char *)malloc(sizeof(char *) * (ui_pos + 1));
         if (!str_ret)
             return (-1);
+
         ft_bzero(str_ret, ft_strlen(str_ret));
+
         ft_strncpy(str_ret, *str_test, ui_pos);
         ft_strncpy(*str_store, *str_test + ui_pos + 1, (ft_strlen(*str_test) - (ui_pos)));
         free(*str_test);
@@ -130,10 +132,15 @@ char *get_next_line(int fd)
     }
     else
     {
-        //printf("\n--------------------------------------\n");
+        str_ret = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+        if (!str_ret)
+            return NULL;
+
+        ft_bzero(str_ret, BUFFER_SIZE + 1);
         ft_strncpy(str_ret, str_store, ft_strlen(str_store));
+
         if (ft_feedback_newline(&str_ret, &str_store))
-            return (str_ret);
+            return str_ret;
     }
     ui_read_res = 1;
     while (ui_read_res != 0 && ui_read_res != -1 && ui_read_res <= BUFFER_SIZE)
