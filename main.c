@@ -19,22 +19,27 @@ int ft_strcmp(char *str1, char *str2)
 int main(void) 
 {
     int fd;
-    char *str_read ;
-  
+    char *str_read;
+
     fd = open("Test.txt", O_RDONLY);
     if (fd < 0) {
         perror("r1");
         exit(1);
     }
 
-    str_read = get_next_line(fd);
+    printf("test");
+  
 
-    while (str_read != NULL)
-    {
-        printf("%s", str_read);
-        str_read = get_next_line(fd);
-    }
+    str_read = get_next_line(fd);
+    printf("%s", str_read);
     free(str_read);
+    
+    // while (str_read != NULL)
+    // {
+    //     printf("%s", str_read);
+    //     str_read = get_next_line(fd);
+    // }
+    // free(str_read);
     
     int result = close(fd);
     if (result < 0) {

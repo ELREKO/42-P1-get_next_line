@@ -38,4 +38,7 @@ main: $(NAME) main.c $(OBJS)
 run: 	fclean main
 		./program
 
+val: 	fclean main
+		valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes ./program
+		
 .PHONY: all clean fclean re
