@@ -12,7 +12,7 @@ int main(void)
     }
 
     str_read = get_next_line(fd);
-   // printf("%s \n", str_read);
+    printf("|%s| \n", str_read);
     free(str_read);
 
     int result = close(fd);
