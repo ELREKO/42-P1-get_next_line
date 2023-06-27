@@ -126,7 +126,7 @@ char *get_next_line(int fd)
     printf("i am jump in");
     if (str_store == NULL)
     {
-        str_store = (char *)malloc(sizeof(char *) * BUFFER_SIZE);
+        str_store = (char *)malloc(sizeof(char *) * BUFFER_SIZE + 1);
         if(!str_store)
             return (NULL);
     }

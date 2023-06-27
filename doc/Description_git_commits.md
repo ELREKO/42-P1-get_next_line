@@ -76,3 +76,18 @@
 - [ ] Test with Big Buffer Size 10000000
     - ich habe immer nur mit klienen  Buffer Size getestet jedoch bekomme ich bei einer grosse zurück BS das ganze file zurück
     - Ich muss den static speicher auslesen 
+
+## fixing some mem leaks --> 2023.06.26
+- The file dosn't work on the school PC 
+--> i save it on git becouse i want to test with my laptop agian 
+- on my laptop it wokrs. 
+
+## Fixing more leaks --> 2023.06.26
+--> Programm does not work maybe i think to start new. And think about the mem leak at the Exam i have also write down in 3h 
+- i have a fuction Repo at as extra folder in my folder 
+[source](https://codeberg.org/Vusk/get_next_line)
+
+## Newstart --> 2023.06.27
+- i write the function new --> the old Project are in the Folder "Old_Project"
+- The new are at the foler --> "new_begin"
+

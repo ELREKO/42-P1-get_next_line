@@ -17,7 +17,7 @@ size_t ft_strlen(char * str);
 char *ft_strncpy(char *dest, const char *src, unsigned int size);
 char *ft_strcat(char *dest, const char *src);
 void ft_bzero(void *str, size_t ui_len);
-
+char *ft_calloc_char(size_t size);
 
 
 #endif

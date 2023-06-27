@@ -67,6 +67,49 @@ int main() {
     mem = (unsigned char *)str;
     ...
   }
-  
-  
   ```
+
+  ## 230627
+- Ich hatte gestern das Problem das mein Code auf dem Laptop ausfuerbar war aber nicht auf dem Schulrechner!
+Auf dem Schulrechner kam immer "Core Dumped" 
+Heute hatte ich das "get_next_line" neu angefangen und es hatte sich gelohnt ich habe verstanden warum das Problem auftauchte! 
+
+--> Das Problem lag darin das ich die Variable zum Beschreiben der Funktion uebergeben hatte und dies darin versuchte zu lesen und zu beschreiben dies schien mein Rechner zu machen. 
+> **Das Problem --> so nicht machen**
+```
+int ft_check_Newline(char **str_check)//, char **str_store)
+{
+    int i_count;
+    char *mem; 
+    if ((mem = ft_calloc_char(ft_strlen(*str_check))) == NULL)
+        return (-1);
+    i_count = 0;
+    while (str_check[i_count] != '\0')
+    {
+        i_count++;
+    }
+    free(mem);
+    return (1);
+}
+```
+
+> **Kein Core Dumped mit "interne Variable" in der Funktion hier mit mem!**
+```
+int ft_check_Newline(char **str_check)//, char **str_store)
+{
+    int i_count;
+    char *mem; 
+    if ((mem = ft_calloc_char(ft_strlen(*str_check))) == NULL)
+        return (-1);
+    i_count = 0;
+    while (mem[i_count] != '\0')
+    {
+        i_count++;
+    }
+    free(mem);
+    return (1);
+}
+```
+
+
+  

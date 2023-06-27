@@ -1,6 +1,12 @@
 {
     "files.associations": {
         "unistd.h": "c",
-        "stdio.h": "c"
-    }
+        "stdio.h": "c",
+        "get_next_line.h": "c"
+    },
+    "C_Cpp.autocomplete": "default",
+    "C_Cpp.intelliSenseEngine": "default",
+    "C_Cpp.suggestSnippets": false,
+    "C_Cpp.intelliSenseEngineFallback": "enabled",
+    "C_Cpp.autocompleteAddParentheses": true
 }
