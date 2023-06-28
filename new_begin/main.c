@@ -11,8 +11,9 @@ int main(void)
         exit(1);
     }
 int i = -1;
-while (++i < 7)
+while (++i < 9)
 {
+    printf("%d",i);
     str_read = get_next_line(fd);
     printf("%s", str_read);
     free(str_read);

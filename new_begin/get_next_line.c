@@ -22,17 +22,17 @@ static char *ft_read_feedback(int fd, long *l_read_res)
 
 
 
-int ft_check_Newline(char *str_check)
+long ft_check_Newline(char *str_check)
 {
-    unsigned int ui_count;
-    ui_count = 0;
-    while (str_check[ui_count] != '\0')
+    long l_count;
+    l_count = 0;
+    while (str_check[l_count] != '\0')
     {   
-        if (str_check[ui_count]  == '\n')
-            return(ui_count);
-        ui_count++;
+        if (str_check[l_count]  == '\n')
+            return(l_count);
+        l_count++;
     }
-    return(0);
+    return(-1);
 }
 
 char *str_join_read(char *str_old, char *str_read)
@@ -68,7 +68,7 @@ char *get_next_line(int fd)
     static char *str_mem;
     long l_read_res;
     int i_check_error;
-    unsigned int ui_len_new;
+    long l_len_new;
 
     i_check_error = 0;
 
@@ -89,22 +89,21 @@ char *get_next_line(int fd)
         if((str_ret = ft_calloc_char(ft_strlen(str_mem) + 1)) == NULL)
             return (NULL);
         ft_strncpy(str_ret,str_mem,ft_strlen(str_mem));
-       // printf("\n\n|%s| -- |%s|\n\n",str_ret, str_mem);
     }
     l_read_res = 1;
-    while (l_read_res != 0)
+    while (l_read_res != 0 && i_check_error == 0)
     {
         if ((str_ret = str_join_read(str_ret, ft_read_feedback(fd, &l_read_res))) == NULL)
             i_check_error = 1;
-        if ((ui_len_new = ft_check_Newline(str_ret)) != 0)
+        if (l_read_res == -1)// || l_read_res == 0)
+            i_check_error = 1;  
+        if ((l_len_new = ft_check_Newline(str_ret)) != -1)
         {
-            ft_strncpy(str_mem, str_ret + ui_len_new + 1, ft_strlen(str_ret) - ui_len_new );
-            ft_strncpy(str_ret, str_ret, ui_len_new);
-            str_ret[ui_len_new + 1] = '\0';
+            ft_strncpy(str_mem, str_ret + l_len_new + 1, ft_strlen(str_ret) - l_len_new );
+            ft_strncpy(str_ret, str_ret, l_len_new);
+            str_ret[l_len_new + 1] = '\0';
             break ;
         }
-        if (l_read_res == -1)
-            i_check_error = 1;  
     }
     if (i_check_error)
     {
@@ -112,6 +111,5 @@ char *get_next_line(int fd)
         free(str_ret);
         return (NULL);
     }  
-    //free(str_mem);
     return (str_ret);
 }

@@ -94,3 +94,6 @@
 
 ## fix mem leeks --> 2023.06.28
 Next Step: Stop if file end;  
+
+## fixing newline space --> 2023.06.28
+- i had problem with newline and i fixing it 
