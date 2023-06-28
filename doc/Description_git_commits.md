@@ -97,3 +97,8 @@ Next Step: Stop if file end;
 
 ## fixing newline space --> 2023.06.28
 - i had problem with newline and i fixing it 
+
+## last stand --> 2023.06.28
+- no bigger changing
+ToDo: 
+- [ ]Check the file end. 

@@ -65,22 +65,20 @@ char *str_join_read(char *str_old, char *str_read)
 char *get_next_line(int fd)
 {
     char *str_ret;
-    static char *str_mem;
+    static char *str_mem ;
     long l_read_res;
     int i_check_error;
     long l_len_new;
 
     i_check_error = 0;
-
+// Setting main storgage P
     if (!str_mem)
     {
         if((str_mem = ft_calloc_char(BUFFER_SIZE + 1)) == NULL)
-        {
-            
             return (NULL);
-        }
         if((str_ret = ft_calloc_char(1)) == NULL)
-        {   free(str_mem);
+        {   
+            free(str_mem);
             return (NULL);
         }
     }
@@ -90,13 +88,14 @@ char *get_next_line(int fd)
             return (NULL);
         ft_strncpy(str_ret,str_mem,ft_strlen(str_mem));
     }
+
     l_read_res = 1;
     while (l_read_res != 0 && i_check_error == 0)
     {
         if ((str_ret = str_join_read(str_ret, ft_read_feedback(fd, &l_read_res))) == NULL)
             i_check_error = 1;
-        if (l_read_res == -1)// || l_read_res == 0)
-            i_check_error = 1;  
+        if (l_read_res == -1 )
+            i_check_error = 1;
         if ((l_len_new = ft_check_Newline(str_ret)) != -1)
         {
             ft_strncpy(str_mem, str_ret + l_len_new + 1, ft_strlen(str_ret) - l_len_new );
@@ -105,11 +104,16 @@ char *get_next_line(int fd)
             break ;
         }
     }
-    if (i_check_error)
+    if (i_check_error == 1)
     {
         free(str_mem);
         free(str_ret);
         return (NULL);
     }  
-    return (str_ret);
+
+    if (i_check_error == 2) //end of file
+    {
+         return (str_ret);
+    }   
+    return(str_ret);
 }

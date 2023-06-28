@@ -114,4 +114,21 @@ int ft_check_Newline(char **str_check)//, char **str_store)
 ## 230628 
 - get next line really short 
 [LINK](https://github.com/pasqualerossi/42-School-Exam-Rank-03)
-- 
+
+### Checking with gdb 
+> **steps** 
+from [jschott]
+compilieren mit -g
+executable aufrufen mit gdb ./a.out
+nachdem gdb startet dort run eingeben
+Falls ein Fehler auftritt den kompletten Programmverlauf bis zum Fehler mit bt einsehen
+
+### God to know after Born2root Project
+from [ppour-ba]
+And for the rest you can just follow these steps:
+https://github.com/ucefooo/born2beroot
+ucefooo/born2beroot
+Hi, sure, thank you for the evaluation
+https://docs.google.com/document/d/1-BwCO0udUP7MhRh81Y681zz0BalXtKFtte_FHJc6G4s/edit
+Also this video helps with the partitioning disk for the bonus, if you decide to do this part of the bonus you'll have to do it when setting up the VM
+https://youtu.be/OQEdjt38ZJA

@@ -13,7 +13,7 @@ int main(void)
 int i = -1;
 while (++i < 9)
 {
-    printf("%d",i);
+    printf("Line: %d -->",i);
     str_read = get_next_line(fd);
     printf("%s", str_read);
     free(str_read);
