@@ -62,11 +62,6 @@ char *str_join_read(char *str_old, char *str_read)
 }
 
 
-
-
-
-
-
 char *get_next_line(int fd)
 {
     char *str_ret;
@@ -76,13 +71,16 @@ char *get_next_line(int fd)
     unsigned int ui_len_new;
 
     i_check_error = 0;
-    if((str_ret = ft_calloc_char(1)) == NULL)
-        return (NULL);
+
     if (!str_mem)
     {
         if((str_mem = ft_calloc_char(BUFFER_SIZE + 1)) == NULL)
         {
-            free(str_ret);
+            
+            return (NULL);
+        }
+        if((str_ret = ft_calloc_char(1)) == NULL)
+        {   free(str_mem);
             return (NULL);
         }
     }
@@ -98,7 +96,6 @@ char *get_next_line(int fd)
     {
         if ((str_ret = str_join_read(str_ret, ft_read_feedback(fd, &l_read_res))) == NULL)
             i_check_error = 1;
-        
         if ((ui_len_new = ft_check_Newline(str_ret)) != 0)
         {
             ft_strncpy(str_mem, str_ret + ui_len_new + 1, ft_strlen(str_ret) - ui_len_new );
@@ -115,6 +112,6 @@ char *get_next_line(int fd)
         free(str_ret);
         return (NULL);
     }  
-    free(str_mem);
+    //free(str_mem);
     return (str_ret);
 }

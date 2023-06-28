@@ -10,11 +10,13 @@ int main(void)
         perror("r1");
         exit(1);
     }
-
+int i = -1;
+while (++i < 7)
+{
     str_read = get_next_line(fd);
-    printf("|%s| \n", str_read);
+    printf("%s", str_read);
     free(str_read);
-
+}
     int result = close(fd);
     if (result < 0) {
         perror("Error closing file");

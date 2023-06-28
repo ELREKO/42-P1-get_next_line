@@ -111,5 +111,7 @@ int ft_check_Newline(char **str_check)//, char **str_store)
 }
 ```
 
-
-  
+## 230628 
+- get next line really short 
+[LINK](https://github.com/pasqualerossi/42-School-Exam-Rank-03)
+- 
