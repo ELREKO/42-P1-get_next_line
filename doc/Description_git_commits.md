@@ -92,4 +92,5 @@
 - The new are at the foler --> "new_begin"
 
 
-## Fixing bugs --> 2023.06.28 
+## fix mem leeks --> 2023.06.28
+Next Step: Stop if file end;  
