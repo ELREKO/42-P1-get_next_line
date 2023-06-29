@@ -102,3 +102,7 @@ Next Step: Stop if file end;
 - no bigger changing
 ToDo: 
 - [ ]Check the file end. 
+
+## Fixing the end of file Problem --> 2023.06.28
+- [ ] Cleaning for Norminette 
+- [ ] Testting special Case from francinette 

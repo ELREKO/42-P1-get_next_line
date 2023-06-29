@@ -10,14 +10,18 @@ int main(void)
         perror("r1");
         exit(1);
     }
-int i = -1;
-while (++i < 9)
-{
-    printf("Line: %d -->",i);
+    int i = 0;
+
     str_read = get_next_line(fd);
-    printf("%s", str_read);
-    free(str_read);
-}
+    while (str_read)
+    {
+        printf("Line: %d -->",i);
+        printf("%s", str_read);
+        free(str_read);
+        str_read = get_next_line(fd);
+        i++;
+    }
+
     int result = close(fd);
     if (result < 0) {
         perror("Error closing file");
