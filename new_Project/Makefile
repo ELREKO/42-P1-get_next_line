@@ -35,10 +35,16 @@ re: fclean all
 main: $(NAME) main.c $(OBJS)
 	$(CC) $(CFLAGS) main.c $(OBJS) -o program
 
+main_gdb: $(NAME) main.c $(OBJS)
+	$(CC) $(CFLAGS) -g main.c $(OBJS) -o program
+
 run: 	fclean main
 		./program
 
 val: 	fclean main
 		valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes ./program
-		
+
+gdb: 	fclean  main_gdb
+	gdb ./program
+
 .PHONY: all clean fclean re

@@ -106,3 +106,9 @@ ToDo:
 ## Fixing the end of file Problem --> 2023.06.28
 - [ ] Cleaning for Norminette 
 - [ ] Testting special Case from francinette 
+
+
+## Exam Relevant --> 2023.07.02
+I set my old sourcecode to the folder "old_Project" and start a new folder it is simular to functional Repo 
+The Source code is very short! I think thats a version i could use during the Exam03. 
+Only the PREPROZESSOR for BUFFER_SIZE in the header is forbidden! It is only for me that the test is easyer (The main is not Part of the task)

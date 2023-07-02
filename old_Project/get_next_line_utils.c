@@ -61,5 +61,6 @@ char	*ft_calloc_char(size_t size)
 	if (!str_ret)
 		return (NULL);
 	ft_bzero(str_ret, size);
+	//printf("PointerAdress Calloc : |%p|\n", str_ret);
 	return (str_ret);
 }
