@@ -108,7 +108,13 @@ ToDo:
 - [ ] Testting special Case from francinette 
 
 
-## Exam Relevant --> 2023.07.02
+## !!Exam Relevant --> 2023.07.02
 I set my old sourcecode to the folder "old_Project" and start a new folder it is simular to functional Repo 
 The Source code is very short! I think thats a version i could use during the Exam03. 
 Only the PREPROZESSOR for BUFFER_SIZE in the header is forbidden! It is only for me that the test is easyer (The main is not Part of the task)
+
+## 3 Start --> 2023.07.02
+The last version function but if have a big stroreage from 7000000 byte and it does use the the Buffer Size for reading. 
+So from this Version i started new. 
+ 
+

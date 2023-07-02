@@ -27,6 +27,8 @@
 char	*get_next_line(int fd);
 //get_next_line_utils.c
 size_t	ft_strlen(char *str);
-char	*ft_strdup(char *str);
+char	*ft_strdup(char *str, unsigned int size);
+char *ft_calloc_char(size_t size);
+char *ft_strlcat(char *s1, char *s2);
 
 #endif
