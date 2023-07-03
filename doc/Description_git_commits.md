@@ -127,5 +127,10 @@ I try to read all --> store in static --> and seach inside this one for a newlin
 
  !!! Working Repo https://github.com/rphlr/42-get_next_line
 
+ ## Working Project But one Memleak is missing --> 2023.07.03
+ It Works good but i could not fix the last mem_leak;
+
  
+
+
 
