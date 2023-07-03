@@ -38,12 +38,13 @@ static char	*ft_read_the_hole_file(int fd)
 		while(str_read[l_read_ret] != '\0')
 			str_read[l_read_ret] = '\0';
 		l_read_ret = read(fd, str_read, BUFFER_SIZE);
-		if (l_read_ret <= 0)
-		{
-			free(str_read);
+		if (l_read_ret == 0)
 			break ;
-		}
+if(l_read_ret < -1)
+		{free(str_read);
+return NULl}
 	}
+free(str_read);
 	return(str_mem);
 }
 
