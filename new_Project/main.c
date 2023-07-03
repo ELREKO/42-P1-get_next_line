@@ -19,6 +19,7 @@ int main(void)
         printf("%s", str_read);
         free(str_read);
         str_read = get_next_line(fd);
+        printf("\n-----------------Pointer-----------: %p\n", (void*)get_next_line);
     }
     free(str_read);
     int result = close(fd);

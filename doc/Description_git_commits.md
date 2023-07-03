@@ -125,3 +125,7 @@ Maybe Check at the beginn --> set to str_ret --> and free the str_mem;
 I try to read all --> store in static --> and seach inside this one for a newline 
  
 
+ !!! Working Repo https://github.com/rphlr/42-get_next_line
+
+ 
+
