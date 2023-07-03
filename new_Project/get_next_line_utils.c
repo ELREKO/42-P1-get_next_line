@@ -31,7 +31,7 @@ char	*ft_strdup(char *str, unsigned int size)
 	if (!str_ret)
 		return (NULL);
 	ui_count = 0;
-	printf(" -- %d -- \n", size);
+	//printf(" -- %d -- \n", size);
 	while (str[ui_count] != '\0' && ui_count <= size)
 	{
 		str_ret[ui_count] = str[ui_count];
@@ -62,6 +62,7 @@ char *ft_strlcat(char *s1, char *s2)
 	unsigned int ui_copy_s2;
 	char *str_ret;
 
+	//printf("\n MMMMMM |%s|  ---- |%s|", s1, s2);
 	str_ret = ft_calloc_char(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!str_ret)
 		return (NULL);

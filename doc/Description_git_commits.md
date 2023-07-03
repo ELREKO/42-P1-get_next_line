@@ -116,5 +116,9 @@ Only the PREPROZESSOR for BUFFER_SIZE in the header is forbidden! It is only for
 ## 3 Start --> 2023.07.02
 The last version function but if have a big stroreage from 7000000 byte and it does use the the Buffer Size for reading. 
 So from this Version i started new. 
+
+## Newline detection on the 3 try --> 2023.07.03
+I detecte new Line --> But i does not use the static Variabel for Store 
+Maybe Check at the beginn --> set to str_ret --> and free the str_mem; 
  
 

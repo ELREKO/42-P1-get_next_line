@@ -28,54 +28,76 @@ char *ft_read(int fd, long *l_read_ret)
 	return (str_read);
 }
 
-long ft_check_newline(char *str)
+char *ft_check_newline(char *str, char **str_store)
 {
 	long l_count;
-	//char *str_ret;
-	//char  *str_mem;
+	char *str_ret;
+	char  *str_mem;
 
 	l_count = 0;
-	while (str[l_count] != '\0')
+	str_mem = ft_strdup(str, ft_strlen(str));
+	if (!str_mem)
+		return (NULL);
+	//printf("\n\nstr Mem: |%s| str|%s| \n\n",str_mem, str);
+	while (str_mem[l_count] != '\0')
 	{
-		// printf("%c\n",str[l_count]);
-		if (str[l_count] == '\n')
-		{
-			// str_ret = ft_strdup(str, (ft_strlen(str) - l_count));
-			// // str_mem = ft_strdup(str + l_count, ft_strlen(str));
-		 	// printf("\n-----|%s|-----\n\n", str_ret);
-			return (l_count);
+	 	if (str_mem[l_count] == '\n')
+	 	{
+	// 		printf("YES");
+	 		str_ret = ft_strdup(str_mem, l_count);
+	 		*str_store = ft_strdup(str_mem + l_count + 1, ft_strlen(str_mem));
+	// 		//printf("\n I am in: \n str: Mem|%s|\nstr_ret|%s|\nstr_store |%s|", str_mem, str_ret, *str_store);
+	 		if (!str_ret)
+	 			return (NULL);
+	 		free(str_mem);
+	 		free(str);
+			printf("%s \n|%s|\n", str_ret, *str_store);
+	 		return (str_ret);
 		}
-		l_count++;	
+	 	l_count++;	
 	}
-	return (-1);
+	*str_store = NULL;
+	free(str);
+	return (str_mem);
 }
-
 
 char	*get_next_line(int fd)
 {
-	
-	//char	*str_line;
 	char	*str_read;
 	char	*str_ret;
+	//static char	*str_mem;
 	long	l_read_ret;
 	//int		i_count_line;
 
 	//Error Check
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	//create read
 	
-	str_ret = ft_calloc_char(1);
-	if (!str_ret)
-		return (NULL);;
-	str_read = ft_read(fd, &l_read_ret);
+	// if (str_mem)
+	// 	str_ret = ft_check_newline(str_mem, &str_read);
+	// if(str_read == NULL)
+	// {	
+		str_read = ft_read(fd, &l_read_ret);
+		str_ret = ft_calloc_char(1);
+		if (!str_ret)
+			return (NULL);
+	// }
+	// else
+	// {
+	// 	free(str_read);
+	// 	return(str_ret);
+	// }
 	while (str_read)
 	{
 		str_ret = ft_strlcat(str_ret, str_read);
-		l_read_ret = ft_check_newline(str_ret);
-		if (l_read_ret > -1)
+		if (!str_ret)
+			return (NULL);
+		//--> Checke till here is okay Newline is important		
+		str_ret = ft_check_newline(str_ret, &str_read);
+		if (str_read != NULL)
 		{
-			str_ret = ft_strdup(str_ret, l_read_ret);
+			//str_mem = ft_strdup(str_read, ft_strlen(str_read));
+			free(str_read);
 			break;
 		}
 		str_read = ft_read(fd, &l_read_ret);
