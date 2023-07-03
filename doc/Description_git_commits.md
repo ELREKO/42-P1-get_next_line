@@ -120,5 +120,8 @@ So from this Version i started new.
 ## Newline detection on the 3 try --> 2023.07.03
 I detecte new Line --> But i does not use the static Variabel for Store 
 Maybe Check at the beginn --> set to str_ret --> and free the str_mem; 
+
+## Starting a New Tinking --> 2023.07.03
+I try to read all --> store in static --> and seach inside this one for a newline 
  
 

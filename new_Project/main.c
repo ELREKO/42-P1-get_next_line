@@ -21,7 +21,7 @@ int main(void)
         str_read = get_next_line(fd);
         i++;
     }
-    //free(str_read);
+    free(str_read);
     int result = close(fd);
     if (result < 0) {
         perror("Error closing file");

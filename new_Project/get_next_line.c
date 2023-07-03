@@ -12,111 +12,99 @@
 
 #include "get_next_line.h"
 
-char *ft_read(int fd, long *l_read_ret)
+// char *ft_read(int fd, long *l_read_ret)
+// {
+// 	char	*str_read;
+
+// 	str_read = ft_calloc_char(BUFFER_SIZE + 1);
+// 	if (!str_read)
+// 		return (NULL);
+// 	*l_read_ret = read(fd, str_read, BUFFER_SIZE);
+// 	if (*l_read_ret <= 0)
+// 	{	
+// 		free(str_read);
+// 		return (NULL);
+// 	}
+// 	return (str_read);
+// }
+
+// // char *ft_check_newline(char *str, char **str_store)
+// {
+// 	long l_count;
+// 	char *str_ret;
+// 	char  *str_mem;
+
+// 	l_count = 0;
+// 	str_mem = ft_strdup(str, ft_strlen(str));
+// 	if (!str_mem)
+// 		return (NULL);
+// 	//printf("\n\nstr Mem: |%s| str|%s| \n\n",str_mem, str);
+// 	while (str_mem[l_count] != '\0')
+// 	{
+// 	 	if (str_mem[l_count] == '\n')
+// 	 	{
+// 	// 		printf("YES");
+// 	 		str_ret = ft_strdup(str_mem, l_count);
+// 	 		*str_store = ft_strdup(str_mem + l_count + 1, ft_strlen(str_mem));
+// 	// 		//printf("\n I am in: \n str: Mem|%s|\nstr_ret|%s|\nstr_store |%s|", str_mem, str_ret, *str_store);
+// 	 		if (!str_ret)
+// 	 			return (NULL);
+// 	 		free(str_mem);
+// 	 		free(str);
+// 			//printf("%s \n|%s|\n", str_ret, *str_store);
+// 	 		return (str_ret);
+// 		}
+// 	 	l_count++;	
+// 	}
+// 	*str_store = NULL;
+// 	free(str);
+// 	return (str_mem);
+// }
+
+
+static char	*ft_read_the_hole_file(int fd)
 {
 	char	*str_read;
-
+	char 	*str_mem;
+	long	l_read_ret;
+	
 	str_read = ft_calloc_char(BUFFER_SIZE + 1);
-	if (!str_read)
+	str_mem = ft_calloc_char(1);
+	if(!str_read || !str_mem)
 		return (NULL);
-	*l_read_ret = read(fd, str_read, BUFFER_SIZE);
-	if (*l_read_ret <= 0)
-	{	
-		free(str_read);
-		return (NULL);
-	}
-	return (str_read);
-}
-
-char *ft_check_newline(char *str, char **str_store)
-{
-	long l_count;
-	char *str_ret;
-	char  *str_mem;
-
-	l_count = 0;
-	str_mem = ft_strdup(str, ft_strlen(str));
-	if (!str_mem)
-		return (NULL);
-	//printf("\n\nstr Mem: |%s| str|%s| \n\n",str_mem, str);
-	while (str_mem[l_count] != '\0')
+	l_read_ret = read(fd, str_read, BUFFER_SIZE);
+	while(str_read)
 	{
-	 	if (str_mem[l_count] == '\n')
-	 	{
-	// 		printf("YES");
-	 		str_ret = ft_strdup(str_mem, l_count);
-	 		*str_store = ft_strdup(str_mem + l_count + 1, ft_strlen(str_mem));
-	// 		//printf("\n I am in: \n str: Mem|%s|\nstr_ret|%s|\nstr_store |%s|", str_mem, str_ret, *str_store);
-	 		if (!str_ret)
-	 			return (NULL);
-	 		free(str_mem);
-	 		free(str);
-			printf("%s \n|%s|\n", str_ret, *str_store);
-	 		return (str_ret);
+		str_mem = ft_strlcat(str_mem, str_read);
+		l_read_ret = 0;
+		while(str_read[l_read_ret] != '\0')
+			str_read[l_read_ret] = '\0';
+		l_read_ret = read(fd, str_read, BUFFER_SIZE);
+		if (l_read_ret <= 0)
+		{
+			free(str_read);
+			break ;
 		}
-	 	l_count++;	
 	}
-	*str_store = NULL;
-	free(str);
-	return (str_mem);
+	if (l_read_ret == -1)
+		return (NULL);
+	return(str_mem);
 }
 
 char	*get_next_line(int fd)
 {
-	char	*str_read;
-	char	*str_ret;
-	//static char	*str_mem;
-	long	l_read_ret;
-	//int		i_count_line;
-
-	//Error Check
+	static char *str_mem;
+	//char	*str_ret;
+	//Importeant Check
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	
-	// if (str_mem)
-	// 	str_ret = ft_check_newline(str_mem, &str_read);
-	// if(str_read == NULL)
-	// {	
-		str_read = ft_read(fd, &l_read_ret);
-		str_ret = ft_calloc_char(1);
-		if (!str_ret)
+	if (!str_mem)
+	{	
+		str_mem = ft_read_the_hole_file(fd);
+		if (str_mem == NULL)
 			return (NULL);
-	// }
-	// else
-	// {
-	// 	free(str_read);
-	// 	return(str_ret);
-	// }
-	while (str_read)
-	{
-		str_ret = ft_strlcat(str_ret, str_read);
-		if (!str_ret)
-			return (NULL);
-		//--> Checke till here is okay Newline is important		
-		str_ret = ft_check_newline(str_ret, &str_read);
-		if (str_read != NULL)
-		{
-			//str_mem = ft_strdup(str_read, ft_strlen(str_read));
-			free(str_read);
-			break;
-		}
-		str_read = ft_read(fd, &l_read_ret);
+		return (str_mem);
 	}
-	if (!str_read)
-	{
-		free(str_ret);
-		return (NULL);
-	}
+	return (NULL);
 	
-	
-	// i_count_line = 0;
-	// while (l_read_ret > 0)
-	// {
-	// 	ft_strlcat(str_line)
-	// 	if (st_read == '\n')
-	// 		break ;
-	// 	i_read_ret = read(fd, &ch_read, 1);
-	// }
-	// str_line[i_count_line] = '\0';
-	return (str_ret);
 }
