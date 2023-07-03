@@ -22,24 +22,24 @@ size_t	ft_strlen(char *str)
 	return (ui_count);
 }
 
-// char	*ft_strdup(char *str, unsigned int size)
-// {
-// 	char	*str_ret;
-// 	size_t	ui_count;
+char	*ft_strdup(char *str, unsigned int size)
+{
+	char	*str_ret;
+	size_t	ui_count;
 
-// 	str_ret = ft_calloc_char(size + 1);
-// 	if (!str_ret)
-// 		return (NULL);
-// 	ui_count = 0;
-// 	//printf(" -- %d -- \n", size);
-// 	while (str[ui_count] != '\0' && ui_count <= size)
-// 	{
-// 		str_ret[ui_count] = str[ui_count];
-// 		ui_count++;
-// 	}
-// 	str_ret[ui_count] = '\0';
-// 	return (str_ret);
-// }
+	str_ret = ft_calloc_char(size + 1);
+	if (!str_ret)
+		return (NULL);
+	ui_count = 0;
+	//printf(" -- %d -- \n", size);
+	while (str[ui_count] != '\0' && ui_count <= size)
+	{
+		str_ret[ui_count] = str[ui_count];
+		ui_count++;
+	}
+	str_ret[ui_count] = '\0';
+	return (str_ret);
+}
 
 char *ft_calloc_char(size_t size)
 {

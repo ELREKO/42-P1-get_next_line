@@ -13,13 +13,12 @@ int main(void)
     int i = 0;
 
     str_read = get_next_line(fd);
-    while (str_read)
+    while (i++ < 20)
     {
         printf("Line: %d -->",i);
         printf("%s", str_read);
         free(str_read);
         str_read = get_next_line(fd);
-        i++;
     }
     free(str_read);
     int result = close(fd);

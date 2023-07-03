@@ -12,56 +12,6 @@
 
 #include "get_next_line.h"
 
-// char *ft_read(int fd, long *l_read_ret)
-// {
-// 	char	*str_read;
-
-// 	str_read = ft_calloc_char(BUFFER_SIZE + 1);
-// 	if (!str_read)
-// 		return (NULL);
-// 	*l_read_ret = read(fd, str_read, BUFFER_SIZE);
-// 	if (*l_read_ret <= 0)
-// 	{	
-// 		free(str_read);
-// 		return (NULL);
-// 	}
-// 	return (str_read);
-// }
-
-// // char *ft_check_newline(char *str, char **str_store)
-// {
-// 	long l_count;
-// 	char *str_ret;
-// 	char  *str_mem;
-
-// 	l_count = 0;
-// 	str_mem = ft_strdup(str, ft_strlen(str));
-// 	if (!str_mem)
-// 		return (NULL);
-// 	//printf("\n\nstr Mem: |%s| str|%s| \n\n",str_mem, str);
-// 	while (str_mem[l_count] != '\0')
-// 	{
-// 	 	if (str_mem[l_count] == '\n')
-// 	 	{
-// 	// 		printf("YES");
-// 	 		str_ret = ft_strdup(str_mem, l_count);
-// 	 		*str_store = ft_strdup(str_mem + l_count + 1, ft_strlen(str_mem));
-// 	// 		//printf("\n I am in: \n str: Mem|%s|\nstr_ret|%s|\nstr_store |%s|", str_mem, str_ret, *str_store);
-// 	 		if (!str_ret)
-// 	 			return (NULL);
-// 	 		free(str_mem);
-// 	 		free(str);
-// 			//printf("%s \n|%s|\n", str_ret, *str_store);
-// 	 		return (str_ret);
-// 		}
-// 	 	l_count++;	
-// 	}
-// 	*str_store = NULL;
-// 	free(str);
-// 	return (str_mem);
-// }
-
-
 static char	*ft_read_the_hole_file(int fd)
 {
 	char	*str_read;
@@ -73,6 +23,14 @@ static char	*ft_read_the_hole_file(int fd)
 	if(!str_read || !str_mem)
 		return (NULL);
 	l_read_ret = read(fd, str_read, BUFFER_SIZE);
+	//printf("\n\n%ld\n\n", l_read_ret);
+	if (l_read_ret <= 0)
+	{	
+		//printf("\n\nTest iam in \n\n");
+		free(str_read);
+		free(str_mem);
+		return (NULL);
+	}
 	while(str_read)
 	{
 		str_mem = ft_strlcat(str_mem, str_read);
@@ -94,17 +52,39 @@ static char	*ft_read_the_hole_file(int fd)
 char	*get_next_line(int fd)
 {
 	static char *str_mem;
-	//char	*str_ret;
+	long 	l_count;
+	char	*str_ret;
+	char	*str_buffer;
 	//Importeant Check
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	if (!str_mem)
+	if (str_mem == NULL)
 	{	
 		str_mem = ft_read_the_hole_file(fd);
 		if (str_mem == NULL)
+		{
+			//free(str_mem);
 			return (NULL);
-		return (str_mem);
+		}
 	}
-	return (NULL);
-	
+	l_count = 0; 
+	while(str_mem[l_count++])
+	{
+		if (str_mem[l_count] == '\n')
+		{	
+			str_ret = ft_strdup(str_mem, l_count);
+			str_buffer = ft_strdup(str_mem + l_count + 1, ft_strlen(str_mem) - l_count);
+			if (!str_ret || !str_buffer)
+				return (NULL);
+			free(str_mem);
+			str_mem = ft_strdup(str_buffer, ft_strlen(str_buffer));
+			if (!str_mem)
+				return (NULL);
+			free(str_buffer);
+			return (str_ret);
+		}
+	}
+	str_ret = ft_strdup(str_mem, ft_strlen(str_mem));
+	str_mem = NULL;
+	return(str_ret);
 }
