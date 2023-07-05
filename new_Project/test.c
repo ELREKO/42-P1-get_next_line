@@ -134,7 +134,6 @@ char	*get_next_line(int fd)
 	if (!str_mem)
 	{	
 		str_mem = ft_read_the_hole_file(fd);
-		//printf("\n----------------------------\nSTR-MEM\n%s\n",str_mem);
 		if (!str_mem)
 			return (NULL);
 	}
@@ -147,11 +146,11 @@ char	*get_next_line(int fd)
 			str_buffer = ft_strdup(str_mem + l_count + 1, ft_strlen(str_mem) - l_count);
 			if (!str_ret || !str_buffer)
 				return (NULL);
-			free(str_mem);
+			str_mem = NULL;
 			str_mem = ft_strdup(str_buffer, ft_strlen(str_buffer));
 			if (!str_mem)
 				return (NULL);
-			free(str_buffer);
+			str_buffer = NULL;
 			return (str_ret);	
 		}
 	}

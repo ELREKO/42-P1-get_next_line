@@ -74,7 +74,8 @@ char	*get_next_line(int fd)
 	if (!str_mem)
 	{	
 		str_mem = ft_read_the_hole_file(fd);
-		//printf("\n----------------------------\nSTR-MEM\n%s\n",str_mem);
+		if (str_mem)
+			return (str_mem);
 		if (!str_mem)
 			return (NULL);
 	}
