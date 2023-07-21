@@ -5,6 +5,6 @@ graph TD
     B --> |YES|D[store = readBuf]
 
 
-    click D "/doc/readbuf.md" _blank
+    click D "readbuf.md" 
 ```
 
