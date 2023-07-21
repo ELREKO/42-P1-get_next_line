@@ -2,6 +2,8 @@
 graph TD
     A{fd > 0} -->|NO| B{!store OD 'nl'}
     A --> |YES|C[NULL]
-    B --> |YES|D["store = readBuf"](readbuf.mmd)
+    B --> |YES|D["store = readBuf"]
+
+    click B "readbuf.mmd" "Open this in a new tab" _blank
 
 
