@@ -5,6 +5,6 @@ graph TD
     B --> |YES|D[store = readBuf]
 
 
-    click D "readbuf.md" 
+    click D "readbuf.md"
 ```
 
