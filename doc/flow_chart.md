@@ -1,0 +1,10 @@
+```mermaid
+graph TD
+    A{fd > 0} -->|NO| B{!store OD 'nl'}
+    A --> |YES|C[NULL]
+    B --> |YES|D[store = readBuf]
+
+
+    click D "readbuf.md" _blank
+```
+
