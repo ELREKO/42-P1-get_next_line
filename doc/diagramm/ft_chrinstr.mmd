@@ -1,10 +1,5 @@
----
-title: ft_chrinstr
----
-
 flowchart TD
-
-A{str_i != '\0} -- no --> E(return_0) 
-A -- yes --> B{str_i == chr}
-B -- no -->C(i++)-->A
-B -- yes -->D(Rerurn *str_i)
+  A{str_i != '\0} -- no --> E(return_0) 
+  A -- yes --> B{str_i == chr}
+  B -- no -->C(i++)-->A
+  B -- yes -->D(Rerurn *str_i)
