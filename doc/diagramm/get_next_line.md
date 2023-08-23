@@ -1,7 +1,12 @@
+
+```mermaid
 ---
 titel: get_next_line
 ---
 
 flowchart TD
-A{fd < 0} -- yes -->B("Link")
 click B "https://github.com/ELREKO/get_next_line/blob/main/doc/diagramm/ft_chrinstr.mmd" _blank
+A{fd < 0} -- yes -->B("Link")
+
+```
+Test
