@@ -8,7 +8,6 @@ checking if charter includet in a string
 ```char *ft_chrinstr(char *str, int chr)```
 
 ## Links
-
 - [back](get_next_line.md)
 - [main function](get_next_line.md)
 - [README](../../README.md)
