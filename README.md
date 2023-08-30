@@ -4,8 +4,8 @@ Is 1 from the Project from the first circel of 42 Cours
 ## My Points
 - About the function [read](/doc/read().md)
 - git to a short [version](https://github.com/pasqualerossi/42-School-Exam-Rank-03) for the exam-Rank03
-- [Lerning](/doc/Lerning) 
-- [flow Chart](/doc/flowchart/get_next_line)
+- [Lerning](/doc/Lerning.md) 
+- [flow Chart](/doc/flowchart/get_next_line.md)
 - Prepering [defence](/doc/defence.md)
 
 ## Description
