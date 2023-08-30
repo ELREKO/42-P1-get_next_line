@@ -8,10 +8,9 @@
 ```char  *ft_readbuf(int fd, char *storage)```
 
 ## Links
-
-[back](get_next_line.md)
-[main function](get_next_line.md)
-[README](../../README.md)
+- [back](get_next_line.md)
+- [main function](get_next_line.md)
+- [README](../../README.md)
 
 ### used subfunctions
 - [ft_chrinstr](ft_chrinstr.md)
