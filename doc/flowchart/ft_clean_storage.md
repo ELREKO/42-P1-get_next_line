@@ -12,6 +12,8 @@ Giving a new string after \n cutting the storage and free the old storage!
 
 ### used subfunctions
 
+---
+
 ```mermaid
 	flowchart TD
 	A("usr ft_chrinstr for find \n position -- ptr")
