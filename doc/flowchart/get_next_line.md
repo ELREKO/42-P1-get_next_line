@@ -8,14 +8,14 @@ checking if charter includet in a string,
 
 ## Links
 
-[back](../../README.md)
-[main function](get_next_line.md)
-[README](../../README.md)
+- [back](../../README.md)
+- [main function](get_next_line.md)
+- [README](../../README.md)
 
 ### used subfunctions
-[ft_chrinstr](ft_chrinstr.md)
-[ft_readbuf](ft_readbuf.md)
-[ft_clean_storage](ft_clean_storage.md)
+- [ft_chrinstr](ft_chrinstr.md)
+- [ft_readbuf](ft_readbuf.md)
+- [ft_clean_storage](ft_clean_storage.md)
 
 ---
 ```mermaid
