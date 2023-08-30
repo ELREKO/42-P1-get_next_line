@@ -16,6 +16,8 @@
 - [ft_chrinstr](ft_chrinstr.md)
 - [ft_strjoin](ft_strjoin.md)
 
+---
+
 ```mermaid
 flowchart TD
 	A(set rid = 1)-->B(creat a Buffer)
