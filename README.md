@@ -1,11 +1,13 @@
 # get_next_line
 Is 1 from the Project from the first circel of 42 Cours
 
+--> [subject](/PDF/subject_get_next_line.pdf)
+
 ## My Points
 - About the function [read](/doc/read().md)
 - git to a short [version](https://github.com/pasqualerossi/42-School-Exam-Rank-03) for the exam-Rank03
-- [Lerning](/doc/Lerning.md)
-- [flow Chart](/doc/flowchart/get_next_line.md)
+- [Lerning](/doc/Lerning) 
+- [flow Chart](/doc/flowchart/get_next_line)
 - Prepering [defence](/doc/defence.md)
 
 ## Description
@@ -42,5 +44,15 @@ read, malloc, free
 • You are not allowed to use your libft in this project.
 • lseek() is forbidden.
 • Global variables are forbidden.
-  
---> [subject](/PDF/subject_get_next_line.pdf)
+
+## Resulat 
+i do wihtout bouns!
+
+### You want Bonus
+If i need the point i could use the bonus! 
+- You shoud think about --> get_next_line.c --> line 86: static char	*str_storage = {0}; 
+    - str_storage[OPEN_MAX]
+    - check the `OPEN_MAX` in the if condition Line 89
+- And `define` the `OPEN_MAX` in the header file! 
+
+![res](/doc/pic/result.png)
